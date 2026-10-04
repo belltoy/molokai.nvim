@@ -1,0 +1,19 @@
+*molokai.txt*  Molokai colorscheme for Neovim
+
+Use `:colorscheme molokai` after adding this repository to 'runtimepath'.
+
+Configure before :colorscheme molokai:
+>
+  require('molokai').setup({
+    transparent = false,      -- default true; opaque background is #272822
+    italic_comments = true,   -- default false
+    italic_keywords = true,   -- default false
+  })
+  vim.cmd.colorscheme('molokai')
+<
+`original = true` selects the original palette and defaults to an opaque
+background unless `transparent` is explicitly set. The legacy setting
+`vim.g.molokai_original = 1` works if `original` was not set with setup().
+The theme sets 'background' to dark.
+
+vim:tw=78:ts=8:ft=help:norl:

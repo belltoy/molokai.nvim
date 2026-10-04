@@ -1,0 +1,116 @@
+return function(p)
+  local groups = {
+    GitSignsUntracked              = { fg = p.orange },
+    GitSignsStagedAdd              = { link = 'Added' },
+    GitSignsStagedChange           = { link = 'Changed' },
+    GitSignsStagedDelete           = { link = 'Removed' },
+    GitSignsAdd                    = { link = 'GitSignsStagedAdd' },
+    GitSignsChange                 = { link = 'GitSignsStagedChange' },
+    GitSignsDelete                 = { link = 'GitSignsStagedDelete' },
+
+    TodoBgFIX                      = { fg = p.dark, bg = p.red, bold = true },
+    TodoFgFIX                      = { fg = p.red },
+    TodoSignFIX                    = { fg = p.red },
+    TroubleCount                   = { fg = p.black, bg = '#f7a41d' },
+    TroubleIndent                  = { fg = p.muted, bg = 'NONE' },
+    NvimTreeLineNr                 = { bg = p.dark },
+
+    NeoTreeNormal                  = { link = 'Normal' },
+    NeoTreeNormalNC                = { link = 'Normal' },
+    NeoTreeRootName                = { fg = '#ae81ff', bold = true },
+    NeoTreeTabSeparatorActive      = { bg = '#1e1e1e', fg = '#1e1e1e' },
+    NeoTreeTabSeparatorInactive    = { bg = '#1e1e1e', fg = '#1e1e1e' },
+    NeoTreeTabInactive             = { bg = '#1e1e1e', fg = '#606060' },
+    NeoTreeTabActive               = { bg = '#334452', bold = true },
+
+    TelescopeNormal                = { link = 'NormalFloat' },
+    TelescopeBorder                = { link = 'FloatBorder' },
+    TelescopePreviewLine           = { link = 'IncSearch' },
+    TelescopeSelection             = { bg = "#3e4452", bold = true },
+    TelescopeMatching              = { fg = "#ff007c", bold = true },
+    TelescopePromptBorder          = { bg='none', fg='#5588ee' },
+
+    IlluminatedWordText            = { link = 'LspReferenceText' },
+    IlluminatedWordRead            = { link = 'LspReferenceRead' },
+    IlluminatedWordWrite           = { link = 'LspReferenceWrite' },
+
+    WhichKeyBorder                 = { fg = '#a16600' },
+
+    AerialLine                     = { bg = '#1b6060' },
+    AerialGuide                    = { link = 'Comment' },
+    AerialModule                   = { link = 'Constant' },
+    AerialClass                    = { link = 'Type' },
+    AerialInterface                = { link = '@attribute' },
+    AerialStruct                   = { link = 'Structure' },
+    AerialClassIcon                = { link = 'Special' },
+    AerialFunction                 = { link = 'Function' },
+    AerialField                    = { link = '@lsp.type.variable' },
+    AerialTypeParameter            = { link = '@lsp.type.parameter' },
+    AerialConstant                 = { link = 'Constant' },
+    AerialMethod                   = { link = '@lsp.type.method' },
+    AerialEnum                     = { link = '@lsp.type.enum' },
+    AerialEnumMember               = { link = '@lsp.type.enumMember' },
+    AerialObject                   = { link = 'Keyword' },
+
+    BlinkCmpLabelMatch             = { fg = '#afdf64', bold = true },
+    BlinkCmpMenuSelection          = { link = 'CursorLine' },
+    BlinkCmpLabelDeprecated        = { link = 'DiagnosticDeprecated' },
+    BlinkCmpLabelDetail            = { link = 'Label' },
+    BlinkCmpLabelDescription       = { link = 'Comment' },
+    BlinkCmpSource                 = { link = 'PmenuExtra' },
+    BlinkCmpKind                   = { link = 'PmenuKind' },
+    BlinkCmpMenuBorder             = { link = 'Comment' },
+    BlinkCmpDocBorder              = { link = 'Comment' },
+    BlinkCmpGhostText              = { link = 'NonText' },
+    BlinkCmpScrollBarThumb         = { link = 'PmenuThumb' },
+    BlinkCmpScrollBarGutter        = { link = 'PmenuSbar' },
+
+    RenderMarkdownH1               = { fg = '#c84a30', bold = true },
+    RenderMarkdownH1Bg             = { fg = '#005f00', bg = '#afdf00', bold = true },
+    MarkDownTitle                  = { fg = '#c84a30', bold = true },
+    ['@markup.heading.1.markdown'] = { link = 'MarkDownTitle' },
+    ['@markup.heading.2.markdown'] = { link = 'MarkDownTitle' },
+    ['@markup.heading.3.markdown'] = { link = 'MarkDownTitle' },
+    ['@markup.heading.4.markdown'] = { link = 'MarkDownTitle' },
+    ['@markup.heading.5.markdown'] = { link = 'MarkDownTitle' },
+    ['@markup.heading.6.markdown'] = { link = 'MarkDownTitle' },
+
+    BufferLineFill                 = { bg = p.dark },
+    BufferLineBackground           = { fg = p.gray, bg = p.dark },
+    BufferLineBufferSelected       = { fg = p.fg, bg = p.bg, bold = true },
+
+    SnacksPickerBorder             = { link = 'FloatBorder' },
+    SnacksPickerMatch              = { fg = p.orange, bold = true },
+  }
+
+  local kinds = {
+    Text          = '@string',
+    Method        = '@lsp.type.method',
+    Function      = '@lsp.type.function',
+    Constructor   = '@constructor',
+    Field         = '@lsp.type.variable',
+    Variable      = '@lsp.type.variable',
+    Class         = '@lsp.type.class',
+    Interface     = '@lsp.type.interface',
+    Module        = '@lsp.type.namespace',
+    Property      = '@lsp.type.property',
+    Unit          = '@lsp.type.enum',
+    Value         = '@lsp.type.variable',
+    Enum          = '@lsp.type.enum',
+    Keyword       = '@lsp.type.keyword',
+    File          = '@label',
+    Reference     = 'LspReferenceText',
+    Folder        = 'Directory',
+    EnumMember    = '@lsp.type.enumMember',
+    Constant      = '@constant',
+    Struct        = '@lsp.type.struct',
+    Event         = '@lsp.type.event',
+    Operator      = '@lsp.type.operator',
+    TypeParameter = '@lsp.type.parameter',
+  }
+  for kind, target in pairs(kinds) do
+    groups['BlinkCmpKind' .. kind] = { link = target }
+  end
+
+  return groups
+end
