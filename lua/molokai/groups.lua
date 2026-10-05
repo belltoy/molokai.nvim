@@ -283,9 +283,9 @@ return function(p, options)
   }
 
   local lsp = {
-    LspReferenceWrite                                = { bg = '#5c7b36' },
-    LspReferenceRead                                 = { bg = '#3c5bb1' },
-    LspReferenceText                                 = { bg = '#3333ff' },
+    LspReferenceWrite                                = { bg = '#4b6924' },
+    LspReferenceRead                                 = { bg = '#213b8e' },
+    LspReferenceText                                 = { bg = '#0f2375' },
     LspReferenceTarget                               = { link = 'LspReferenceText' },
     LspInlayHint                                     = { fg = p.comment, bg = p.cursor_line },
     LspCodeLens                                      = { fg = p.comment },
