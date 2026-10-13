@@ -81,6 +81,8 @@ return function(p)
 
     SnacksPickerBorder             = { link = 'FloatBorder' },
     SnacksPickerMatch              = { fg = p.orange, bold = true },
+
+    AvanteSidebarWinSeparator      = { fg = '#3e4452', bg = 'none' },
   }
 
   local kinds = {
